@@ -6,6 +6,13 @@ public class OptionsManager : MonoBehaviour {
 
     public static OptionsManager instance;
 
+    //Audio
+    float musicLevel = 1;
+    float effectsLevel = 1;
+
+    //Graphical
+
+
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -17,10 +24,14 @@ public class OptionsManager : MonoBehaviour {
     }
 
     void Start () {
-		
-	}
+        OnOptionsLoad();
+    }
 	
-	void Update () {
-		
-	}
+    void OnOptionsLoad() {
+
+    }
+
+    void OnOptionsSave() {
+
+    }
 }

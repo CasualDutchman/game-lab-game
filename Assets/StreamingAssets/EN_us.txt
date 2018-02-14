@@ -1,3 +1,9 @@
+/Test
 hello=Hello
 hello2=Good day
 hello3=Hi
+
+/Names
+name1=Henri
+name2=Ben
+name3=Bob

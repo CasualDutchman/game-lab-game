@@ -5,11 +5,6 @@ using System.IO;
 
 public class LocalizationManager : MonoBehaviour {
 
-    public class LocalizationData {
-        public string key;
-        public string value;
-    }
-
     public static LocalizationManager instance;
 
     string missingKeyString = "Missing Localized Info";
@@ -31,6 +26,10 @@ public class LocalizationManager : MonoBehaviour {
 
 	void Start () {
         OnLoadLocalizationFile(languageIdName);
+
+        print(GetLocalizedValue("hello"));
+        print(GetLocalizedValue("hello2"));
+        print(GetLocalizedValue("hello3"));
     }
 	
 	void OnLoadLocalizationFile(string languageCode) {
@@ -40,6 +39,9 @@ public class LocalizationManager : MonoBehaviour {
         if (File.Exists(filePath)) {
             string[] dataArray = File.ReadAllLines(filePath);
             foreach (string data in dataArray) {
+                if (data.StartsWith("/") || string.IsNullOrEmpty(data))
+                    continue;
+
                 string[] keyValue = data.Split('=');
                 localizedText.Add(keyValue[0], keyValue[1]);
             }
