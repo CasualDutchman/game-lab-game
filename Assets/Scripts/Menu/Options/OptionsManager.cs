@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OptionsManager : MonoBehaviour {
 
+    enum Settings { Low, Med, High }
+
     public static OptionsManager instance;
 
     //Audio
@@ -11,7 +13,9 @@ public class OptionsManager : MonoBehaviour {
     float effectsLevel = 1;
 
     //Graphical
-
+    bool shadows = true;
+    bool postProcessing = true;
+    Settings textureQuality = Settings.High;
 
     void Awake() {
         if (instance == null) {
