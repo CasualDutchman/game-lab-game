@@ -26,10 +26,12 @@ public class GameManager : MonoBehaviour {
             mousePosition.z = Mathf.Infinity;
 
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 50, LayerMask.GetMask("Building"));
 
             if (hit.collider != null) {
-                Debug.Log(hit.collider.name);
+                if (hit.collider.GetComponent<Building>()) {
+                    hit.collider.GetComponent<Building>().OnBuildingClick();
+                }
             }
 
         }

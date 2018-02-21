@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Building : MonoBehaviour {
 
+    public bool isTownHall = false;
+
 	void Start () {
 		
 	}
 	
 	public void OnBuildingClick() {
-        Debug.Log("Clicked " + gameObject.name);
+        if (isTownHall) {
+            OnTownHall();
+        }
+    }
+
+    void OnTownHall() {
+        ScreenManager.instance.ChangeScreen("council");
     }
 }
